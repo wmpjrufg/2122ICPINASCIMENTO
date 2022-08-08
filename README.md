@@ -2,13 +2,13 @@
 
 Neste repositório são compartilhados os arquivos da Iniciação científica da discente Pamela Inácio Nascimento do curso de Engenharia Civil da Universidade Fedral de Catalão (*UFCAT*).
 
-## Dados
-📝: Colocar aqui título em negrito
-👤: Colocar aqui seu nome
-📅: Ciclo 2021 a 2022
-👨‍🏫: Orientadores:
-1. Wanderlei (Completar)
-2. Maurício (Completar)
+## Dados  
+📝: Colocar aqui título em negrito  
+👤: Colocar aqui seu nome  
+📅: Ciclo 2021 a 2022  
+👨‍🏫: Orientadores:  
+1. Wanderlei (Completar)  
+2. Maurício (Completar)  
 
 ## Resumo:
 
