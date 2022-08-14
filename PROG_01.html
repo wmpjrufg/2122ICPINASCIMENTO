@@ -11,32 +11,38 @@
 			<table>
 				<tr>
 					<td>Norma:</td>
-					<td>
+					<td><input type = "text" id = "NORMA" size = "40"> <br>
+						<!--
 						<select id = "NORMA">
 							<option value = "" data-default disabled selected></option>
 							<option value = "NBR 6118">NBR 6118</option>
 						</select>
+						-->
 					</td>
 				</tr>
 				<tr>
 					<td>Tipo de barra:</td>
 					<td>
+						<!--
 						<select id = "TIPO_1">
 							<option value = "" data-default disabled selected></option>
-							<option value = "1">Lisa</option>
+							<option value = "1.00">Lisa</option>
 							<option value = "1.40">Entalhada</option>
 							<option value = "2.25">Nervurada</option>
 						</select>
+						-->
 					</td>
 				</tr>
 				<tr>
 					<td>Tipo de aderência:</td>
 					<td>
+						<!--
 						<select id = "TIPO_2">
 							<option value = "" data-default disabled selected></option>
 							<option value = "BOA">Boa</option>
 							<option value = "MA">Má</option>
 						</select>
+						-->
 					</td>
 				</tr>
 				<tr>
@@ -48,7 +54,7 @@
 					<td><input type = "number" id = "F_YK" size = "40"> <br></td>
 				</tr>
 				<tr>
-					<td>Bitola \((m)\):</td>
+					<td>\(\phi_l(m)\):</td>
 					<td><input type = "number" id = "BIT" size = "40"> <br></td>
 				</tr>
 				<tr>
@@ -62,17 +68,19 @@
 				<tr>
 					<td>Gancho?</td>
 					<td>
+						<!--
 						<select id = "GANCHO">
 							<option value = "" data-default disabled selected></option>
 							<option value = "SIM">Sim</option>
 							<option value = "NÃO">Não</option>
 						</select>
+						-->
 					</td>
 				</tr>
 			</table>
 			<br>
-			<input type = "button" onclick = "Calcular('txtValor1', 'txtValor2')" value = "Calcular">
-			<input type = "button" onclick = "Limpar('txtValor1', 'txtValor2')" value = "Limpar">
+			<button id = "PROCESSAR">Calcular</button>
+			<button id = "LIMPAR_TELA">Limpar</button>
 		</div>
 		<div style = "background-color: #FFFFE0">
 			<h3>Processamento:</h3>
@@ -83,7 +91,7 @@
 			<p>Divisão 02</p>
 		</div>	
 	</body>
-<!--
+	<!--
 	https://gist.github.com/caiorn/e63b3fdd347a9c035b2ca06d09a1311d
 -->
-	</html>
+</html>
