@@ -1,5 +1,5 @@
 <p align="justify">
-Para o cálculo do comprimento de ancoragem, é preciso obter a resistência de aderência de cálculo (Fbd), que depende de alguns fatores, tais como: o tipo da barra, se é lisa ou nervurada (fator η1), a condição de boa ou má aderência (fator η2), do diâmetro da barra (fator η3) e da resistência do concreto à tração de cálculo (fctd), sendo que para armaduras passivas, o seu cálculo se dá pela expressão: 
+Resumo da IC.
 </p> 
 
 <h2>Índice</h2>
