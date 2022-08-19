@@ -74,8 +74,8 @@ A partir disso, tem-se o comprimento básico de ancoragem (\(l_b\)), que tem que
 <ul>
     <li>\(\alpha\) = 0,70 sem gancho;</li>
     <li>\(\alpha\) = 1,00 com gancho;</li>
-    <li>\(A_{s,calc}\) Área de aço calculada;</li>
-    <li>\(A_{s,ef}\) Área de aço efetiva;</li>
+    <li>\(A_{s,calc}\) - Área de aço calculada;</li>
+    <li>\(A_{s,ef}\) - Área de aço efetiva.</li>
 </ul>
 
 <p align="justify">
