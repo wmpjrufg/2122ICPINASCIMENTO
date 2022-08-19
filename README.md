@@ -16,4 +16,4 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 ## Site
 
-[Calculadoras](https://wmpjrufg.github.io/2122ICPINASCIMENTO/)
+<a href="https://wmpjrufg.github.io/2122ICPINASCIMENTO/" target="_blank">Calculadoras</a>
