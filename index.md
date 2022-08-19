@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+<p align="justify">
+Para o cálculo do comprimento de ancoragem, é preciso obter a resistência de aderência de cálculo (Fbd), que depende de alguns fatores, tais como: o tipo da barra, se é lisa ou nervurada (fator η1), a condição de boa ou má aderência (fator η2), do diâmetro da barra (fator η3) e da resistência do concreto à tração de cálculo (fctd), sendo que para armaduras passivas, o seu cálculo se dá pela expressão: 
+</p> 
 
-You can use the [editor on GitHub](https://github.com/wmpjrufg/2122ICPINASCIMENTO/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<h2>Índice</h2>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. [Ancoragem](https://wmpjrufg.github.io/2122ICPINASCIMENTO/ANCORAGEM/ANCORAGEM.html);
+1. [Flexão pura](https://wmpjrufg.github.io/2122ICPINASCIMENTO/FPURA.html);
+1. [Verificação do nó](https://wmpjrufg.github.io/2122ICPINASCIMENTO/BIELANO.html);
 
-### Markdown
+Orientação:  
+[Dr. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
+[Dr. Mauricio De Pina Ferreira](http://lattes.cnpq.br/4242041552985485)   
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Realização  
+[Pamela Inácio Nascimento]()  
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wmpjrufg/2122ICPINASCIMENTO/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Contato por correio eletrônico: _**wanderlei_junior@ufcat.edu.br**_
