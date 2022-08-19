@@ -1,7 +1,7 @@
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<h1>Comprimento de ancoragem (\(l_{b,nec}\))</h1>
+<h1>Comprimento de ancoragem necessário(\(l_{b,nec}\))</h1>
 
 <p align="justify">
 Para o cálculo do comprimento de ancoragem, é preciso obter a tensão de aderência de cálculo (\(f_{bd}\)), que depende de alguns fatores, tais como: (a) o tipo da barra, se é lisa ou nervurada (fator \(η_1\)), (b) a posição da barra na geometria da peça (fator \(η_2\)), (c) diâmetro da barra (fator \(η_3\)), além da (d) resistência de cálculo do concreto à tração (\(f_{ctd}\)). O cálculo é dado conforme equação (1):
