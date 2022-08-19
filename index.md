@@ -10,7 +10,7 @@ Resumo da IC.
 
 Orientação:  
 [Dr. Wanderlei Malaquias Pereira Junior](http://lattes.cnpq.br/2268506213083114)  
-[Dr. Mauricio De Pina Ferreira](http://lattes.cnpq.br/4242041552985485)   
+[Dr. Mauricio de Pina Ferreira](http://lattes.cnpq.br/4242041552985485)   
 
 Realização  
 [Pamela Inácio Nascimento]()  
