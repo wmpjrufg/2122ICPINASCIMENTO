@@ -1,0 +1,112 @@
+<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<h1>Área de aço à flexão pura (\(l_{b,nec}\))</h1>
+
+<p align="justify">
+O cálculo da área de aço inicia-se com a posição da linha neutra, que é obtida conforme equação (1): 
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[x = \frac{d\pm \sqrt{d^{2}-2.\xi}}{\lambda}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(1)</p>
+        </td>
+    </tr>
+    <tr>
+        <td width = "90%">
+            <p>\[\xi  = \frac{M_d}{b_w.\alpha_c.f_{cd}}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(2)</p>
+        </td>
+    </tr>
+</table>
+
+<ul>
+    <li>\(d\) - altura útil;</li>
+    <li>\(\lambda\) - parâmetro de profundidade da linha neutra dado conforme equação (3);</li>
+    <li>\(\alpha_c\) - parâmetro do efeito Rüsch conforme equação (4);</li>
+    <li>\(M_d\) - momento de cálculo;</li>
+    <li>\(f_{cd}\) - Resistência à compressão de cálculo dado conforme equação (5);</li>
+    <li>\(b_w\) - largura da viga;</li>
+</ul>
+
+<table width = "100%" border = "0">
+    <tr>
+          <td width = "90%"> \[\lambda = 0,80,f_{ck}\leq 50 MPa\]</td>
+          <td rowspan="2" width = "10%">(3)</td>
+    </tr>
+    <tr>
+          <td width = "90%">\[\lambda = 0,80.\frac{f_{ck}-50}{400}, f_{ck}>  50 MPa\]</td>
+    </tr>
+    
+  </table>
+
+<table width = "100%" border = "0">
+    <tr>
+          <td width = "90%"> \[\lambda = 0,80,f_{ck}\leq 50 MPa\]</td>
+          <td rowspan="2" width = "10%">(3)</td>
+    </tr>
+    <tr>
+          <td width = "90%">\[\lambda = 0,80.\frac{f_{ck}-50}{400}, f_{ck}>  50 MPa\]</td>
+    </tr>
+    
+  </table>
+
+<p align="justify">
+A posição da linha neutra será o valor que passa por dentro da seção transversal, tendo-se este cálculo, obtém-se o braço de alavanca (z) por meio da equação (6):
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{ctd}=\frac{f_{ctk,inf}}{\gamma_c}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(2)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+A partir disso, tem-se o comprimento básico de ancoragem (\(l_b\)), que tem que ser maior ou igual a 25.φ e conforme equação (3). A equação (4) apresenta o comprimento de ancoragem necessário (\(l_{b,nec}\))
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[l_{b}=\frac{\phi}{4}.\frac{f_yd}{f_yd} \geq 25.\phi\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(3)</p>
+        </td>
+    </tr>
+    <tr>
+        <td width = "90%">
+            <p>
+                            \[l_{b,nec}=\alpha.l_{b}.\frac{A_{s,calc}}{A_{s,ef}}\geq \left\{\begin{matrix}0,30.l_b
+                            \\10.\phi 
+                            \\100 mm 
+                            \end{matrix}\right.\]
+            </p>
+        </td>
+        <td width = "10%">
+            <p align="right">(4)</p>
+        </td>
+    </tr>
+</table>
+
+<ul>
+    <li>\(\alpha\) = 0,70 sem gancho;</li>
+    <li>\(\alpha\) = 1,00 com gancho;</li>
+    <li>\(A_{s,calc}\) - Área de aço calculada;</li>
+    <li>\(A_{s,ef}\) - Área de aço efetiva.</li>
+</ul>
+
+<p align="justify">
+    <a href="https://wmpjrufg.github.io/2122ICPINASCIMENTO/ANCORAGEM/ANC.html" target="_blank">Acesso a ferramenta.</a>
+</p> 
