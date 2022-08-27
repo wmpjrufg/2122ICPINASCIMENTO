@@ -1,0 +1,94 @@
+<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<h1>Verificação do tipo de nó em bielas e tirantes</h1>
+
+<p align="justify">
+O encontro das barras do Modelo de bielas e tirantes geram nós do tipo CCC (compressão, compressão, compressão), CTT (compressão, tração, tração) ou TTT (tração, tração, tração) e CCT (compressão, compressão, tração). O cálculo do tipo do nó se dá conhecendo αv2 conforme equação (1): 
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[\alpha_{v2} = 1-\frac{f{ck}}{250}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(1)</p>
+        </td>
+    </tr>
+ 
+</table>
+
+<ul>
+    <li>\(f_ck\) - resistência característica à compressão.</li>
+</ul>
+
+<p align="justify">
+O nó tipo compressão, compressão, compressão é calculado pela equação (2):
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{cd1} = 0,85.\alpha_{v2}.f_{cd}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(2)</p>
+        </td>
+    </tr>
+ 
+</table>
+
+<ul>
+    
+    <li>\(f_{cd}\) - resistência à compressão de cálculo dado conforme equação (3);</li>
+</ul>
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{cd}=\frac{f_{yk}}{1,40}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(3)</p>
+        </td>
+    </tr>
+ 
+</table>
+
+<p align="justify">
+Já o nó tipo compressão,  tração, tração é verificado conforme equação (4): 
+</p>
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{cd1} = 0,60.\alpha_{v2}.f_{cd}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(4)</p>
+        </td>
+    </tr>
+ 
+</table>
+
+
+<p align="justify">
+    Por fim, o nó tipo compressão, compressão, tração é dado pela equação (5): 
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{cd1} = 0,72.\alpha_{v2}.f_{cd}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(5)</p>
+        </td>
+    </tr>
+ 
+</table>
+ 
+<p align="justify">
+    <a href="https://wmpjrufg.github.io/2122ICPINASCIMENTO/ANCORAGEM/ANC.html" target="_blank">Acesso a ferramenta.</a>
+</p> 
