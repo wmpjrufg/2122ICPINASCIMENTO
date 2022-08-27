@@ -1,7 +1,7 @@
 <script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id = "MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<h1>Área de aço à flexão pura (\(l_{b,nec}\))</h1>
+<h1>Área de aço à flexão pura (As)</h1>
 
 <p align="justify">
 O cálculo da área de aço inicia-se com a posição da linha neutra, que é obtida conforme equação (1): 
@@ -41,71 +41,161 @@ O cálculo da área de aço inicia-se com a posição da linha neutra, que é ob
           <td rowspan="2" width = "10%">(3)</td>
     </tr>
     <tr>
-          <td width = "90%">\[\lambda = 0,80.\frac{f_{ck}-50}{400}, f_{ck}>  50 MPa\]</td>
+          <td width = "90%">\[\lambda = 0,80.\frac{f_{ck}-50}{400}, f_{ck} >  50 MPa\]</td>
     </tr>
     
   </table>
 
 <table width = "100%" border = "0">
     <tr>
-          <td width = "90%"> \[\lambda = 0,80,f_{ck}\leq 50 MPa\]</td>
-          <td rowspan="2" width = "10%">(3)</td>
+          <td width = "90%"> \[ \alpha_c = 0,85, f_{ck}\leq 50 MPa\]</td>
+          <td rowspan="2" width = "10%">(4)</td>
     </tr>
     <tr>
-          <td width = "90%">\[\lambda = 0,80.\frac{f_{ck}-50}{400}, f_{ck}>  50 MPa\]</td>
+          <td width = "90%">\[\alpha_c = 0,85. [1,0-(f_{ck}-50)/200], f_{ck} >  50 MPa\]</td>
     </tr>
     
   </table>
 
+  <table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{cd}=\frac{f_{ck}}{1,40}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(5)</p>
+        </td>
+    </tr>
+
+</table>
+
 <p align="justify">
-A posição da linha neutra será o valor que passa por dentro da seção transversal, tendo-se este cálculo, obtém-se o braço de alavanca (z) por meio da equação (6):
+A posição da linha neutra será o valor que passa por dentro da seção transversal, tendo-se este cálculo, obtém-se o braço de alavanca (z) por meio da equação (9):
 </p> 
 
 <table width = "100%" border = "0">
     <tr>
         <td width = "90%">
-            <p>\[f_{ctd}=\frac{f_{ctk,inf}}{\gamma_c}\]</p>
+            <p>\[z = d - 0,5.\lambda .x\]</p>
         </td>
         <td width = "10%">
-            <p align="right">(2)</p>
+            <p align="right">(6)</p>
         </td>
     </tr>
 </table>
 
 <p align="justify">
-A partir disso, tem-se o comprimento básico de ancoragem (\(l_b\)), que tem que ser maior ou igual a 25.φ e conforme equação (3). A equação (4) apresenta o comprimento de ancoragem necessário (\(l_{b,nec}\))
+A partir do cálculo da posição da linha neutra e do braço de alavanca, têm-se a área de aço de cálculo conforme equação (7):
 </p> 
 
 <table width = "100%" border = "0">
     <tr>
         <td width = "90%">
-            <p>\[l_{b}=\frac{\phi}{4}.\frac{f_yd}{f_yd} \geq 25.\phi\]</p>
+            <p>\[A{s,calc} = \frac{M_d}{z.f_{yd}}\]</p>
         </td>
         <td width = "10%">
-            <p align="right">(3)</p>
-        </td>
-    </tr>
-    <tr>
-        <td width = "90%">
-            <p>
-                            \[l_{b,nec}=\alpha.l_{b}.\frac{A_{s,calc}}{A_{s,ef}}\geq \left\{\begin{matrix}0,30.l_b
-                            \\10.\phi 
-                            \\100 mm 
-                            \end{matrix}\right.\]
-            </p>
-        </td>
-        <td width = "10%">
-            <p align="right">(4)</p>
+            <p align="right">(7)</p>
         </td>
     </tr>
 </table>
 
 <ul>
-    <li>\(\alpha\) = 0,70 sem gancho;</li>
-    <li>\(\alpha\) = 1,00 com gancho;</li>
-    <li>\(A_{s,calc}\) - Área de aço calculada;</li>
-    <li>\(A_{s,ef}\) - Área de aço efetiva.</li>
+    <li>\(f_{yd}\) - resistência ao escoamento de cálculo conforme equação (8);</li>
 </ul>
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{yd}=\frac{f_{ck}}{1,15}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(8)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+Além da área de aço de cálculo, é necessário conhecer a área de aço mínima, para isso calcula-se o momento de inércia (I), através da equação (9):
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[I = \frac{b_w.h^3}{12}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(9)</p>
+        </td>
+    </tr>
+</table>
+
+<ul>
+    <li>\(h\) - altura da seção transversal;</li>
+</ul>
+
+<p align="justify">
+Em seguida é obtido o módulo de resistência (W), conforme equação (10): 
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[W = \frac{I}{\frac{h}{2}}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(10)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+Na sequência, é adquirida a resistência do concreto à tração superior (fctk,sup) de acordo com a equação (11):
+</p>
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[f_{ctk,sup}=\frac{0,70.0,30\sqrt[3]{f{ck}^{2}}}{1,40}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(11)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+Por meio dos parâmetros calculados, obtém-se momento mínimo que é dado pela equação (12): 
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[M_{d,min}=0,80.W.f{ctk,sup}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(12)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+    Em função deste momento mínimo, a posição da linha neutra e o braço de alavanca encontra-se a área de aço mínima que é fornecida pela  equação (13):  
+</p> 
+
+<table width = "100%" border = "0">
+    <tr>
+        <td width = "90%">
+            <p>\[A_{s,calc}=\frac{M_{d,min}}{z.f_{yd}}\]</p>
+        </td>
+        <td width = "10%">
+            <p align="right">(13)</p>
+        </td>
+    </tr>
+</table>
+
+<p align="justify">
+A área de aço final consistirá na maior área de aço encontrada, ou seja, a maior entre área de aço de cálculo e área de aço mínima.  
+</p> 
 
 <p align="justify">
     <a href="https://wmpjrufg.github.io/2122ICPINASCIMENTO/ANCORAGEM/ANC.html" target="_blank">Acesso a ferramenta.</a>
