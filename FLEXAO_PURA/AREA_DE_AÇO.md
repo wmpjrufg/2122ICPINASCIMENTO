@@ -1,0 +1,214 @@
+<html lang = "pt-BR">
+  	<head>
+		<title>Área de aço por Flexão Pura</title>
+		<style>
+			.entradas{
+				width: 350px;
+			}
+			.entradas select{
+				width: 100.00%;
+			}
+			.entradas input{
+				width: 100.00%;
+			}
+		</style>
+		<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  	</head>
+  	<body>
+		<h1><b>CALCULADORA CONCRETO ARMADO</b></h1>
+			<h2><b>Área de Aço sobre Flexão Pura</b></h2>
+				<div class = 'entradas'>
+				<h3>Entradas:</h3>
+					<table>
+						<tr>
+							<td>Norma:</td>
+							<td>
+								<select id = "norma">
+									<option value = "" data-default disabled selected></option>
+									<option value = "NBR 6118">NBR 6118</option>
+									<!--Estação de teste-->
+									<!--
+									<option value = "NBR 6118" selected>NBR 6118</option>
+									-->
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>\(f_{ck} (kPa)\):</td>
+							<td><input type = "number" id = "f_ck" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "f_ck" size = "40" value = 25000><br></td>
+							-->
+						</tr>
+						<tr>
+							<td>\(M_{d} (kNm)\):</td>
+							<td><input type = "number" id = "m_d" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "f_yk" size = "40" value = 500000><br></td>
+							-->
+						</tr>
+						<tr>
+							<td>\(\D (m)\):</td>
+							<td><input type = "number" id = "d" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "bitola" size = "40" value = 0.016> <br></td>
+							-->
+						</tr>
+						<tr>
+							<td>\(f_{yk} (kPa)\):</td>
+							<td><input type = "number" id = "f_yk" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "f_yk" size = "40" value = 500000><br></td>
+							-->
+						</tr>
+						<tr>
+							<td>\(B_{w} (m)\):</td>
+							<td><input type = "number" id = "b_w" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "a_calc" size = "40" value = 1> <br></td>
+							-->
+						</tr>
+						<tr>
+							<td>\(H (m)\):</td>
+							<td><input type = "number" id = "H" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "a_efet" size = "40" value = 1> <br></td>
+							-->
+						</tr>
+						<tr>
+							<td>Impressões?</td>
+							<td>
+								<select id = "impressões">
+									<option value = "" data-default disabled selected></option>
+									<option value = "SIM">Sim</option>
+									<option value = "NÃO">Não</option>
+									<!--Estação de teste-->
+									<!--
+									<option value = "SIM" selected>Sim</option>
+									-->
+								</select>
+							</td>
+						</tr>
+					</table>
+				</div>
+					<br>
+					<button id = 'calcular'>Calcular</button>
+				<h3>Processamento:</h3>	
+					<p>Linha neutra (x):</p>
+					<p id = "X"></p>
+					<p>Braço de Alavanca (z):</p>
+					<p id = "Z"></p>
+					<p>Momento de Inércia (I):</p>
+					<p id = "I"></p>	
+					<p>Módulo de Resistência (Md{min}):</p>
+					<p id = "M_dmin"></p>
+					<p>Linha neutra no estádio 1 (x{0}):</p>
+					<p id = "X_0"></p>
+				<h3>Resultados:</h3>
+					<p>\(A_{calc} (m)\):</p>
+					<p id = "A_CALC"></p>
+					<p>\(A_{smin} (m)\):</p>
+					<p id = "A_SMIN"></p>	
+					<p>\(A_{sfinal} (m)\):</p>
+					<p id = "A_SFINAL"></p>
+	<script>
+		function FLEXAO_PURA() {	
+			/*
+			Esta função determina o cálculo da área de aço para a situação de flexão pura
+			*/
+			const NORMA = document.getElementById("norma").value;
+			const M_D = document.getElementById("m_d").value;
+			const D = document.getElementById("d").value;
+			const F_CK = document.getElementById("f_ck").value;
+			const F_YK = document.getElementById("f_yk").value;
+			const B_w = document.getElementById("b_w").value;
+			const H = document.getElementById("h").value;
+
+
+			// Cálculo do comprimento de ancoragem conforme item 9.3.2.1 da NBR 6118 (2014)
+			if (NORMA == 'NBR 6118') {
+  
+				# Parâmetros de cálculo    
+				$F_CK /= 1000;
+				if ($F_CK <= 50):
+					$LAMBDA = 0.80;
+					$ALFA_C = 0.85;
+					$CP_DUCTIL = 0.45;
+					$EPSILON_CU = 0.0035;
+				elseif ($F_CK > 50 and $F_CK <= 90):
+					$LAMBDA = 0.8 - ($F_CK - 50)/400;
+					$ALFA_C = 0.85 * (1.0 - ($F_CK - 50)/200);
+					$CP_DUCTIL = 0.35;
+					$EPSILON_CU = 0.0026 + 0.0035 * pow((90 - $F_CK) / 100, 4);
+				endif;
+				$F_CK *= 1000;
+
+				# Cálculo da Posição da Linha Neutra(X)
+				$F_CD = $F_CK / 1.40;
+				$EPSILON = $M_D / ($B_W * $ALFA_C * $F_CD);
+				$X1 = ($D + sqrt(pow($D, 2) - 2 * $EPSILON)) / $LAMBDA;
+				$X2 = ($D - sqrt(pow($D, 2) - 2 * $EPSILON)) / $LAMBDA;
+				$X = $X2;
+			
+				# Área de Aço de Cálculo (A_SCALC)
+				$F_YD = $F_YK / 1.15;
+				## Braço de Alavanca (Z)
+				$Z = $D - 0.5 * $LAMBDA * $X;                  
+				$A_SCALC = $M_D / ($Z * $F_YD);
+
+				# Cálculo do Momento Mínimo (MD_MIN)
+				$F_CK /= 1000;
+				$F_CTM = 0.3 * pow($F_CK, (2 / 3));
+				$F_CTKSUP = 1.3 * $F_CTM;
+				$F_CTKSUP *= 1000;
+				$F_CTM *= 1000;
+				$F_CK *= 1000;  
+				# Inércia da seção
+				$I_C = ($B_W * pow($H, 3)) / 12;
+				$Y_INF = $H / 2;
+				# Módulo de Resistência
+				$W_0 = $I_C / $Y_INF;                         
+				$MD_MIN = 0.80 * $W_0 * $F_CTKSUP;
+			
+				# Cálculo da Posição da Linha Neutra(X) no Estádio 1
+				$F_CD = $F_CK / 1.40;
+				$EPSILON_MD = $MD_MIN / ($B_W * $ALFA_C * $F_CD);
+				$X1_1 = ($D + sqrt(pow($D, 2) - 2 * $EPSILON_MD)) / $LAMBDA;
+				$X2_2 = ($D - sqrt(pow($D, 2) - 2 * $EPSILON_MD)) / $LAMBDA;
+				$X_0 = $X2_2;
+			
+				# Área de Aço Mínima (A_SMIN)
+				$F_YD = $F_YK / 1.15;
+				$Z_0 = $D - 0.5 * $LAMBDA * $X_0; 
+				$A_SMIN = $MD_MIN / ($Z_0 * $F_YD);
+			
+				#Área de Aço de Uso (A_SFINAL)
+				$A_SFINAL = max($A_SCALC, $A_SMIN);
+				
+				// Processamento
+				document.querySelector('#Linha neutra').textContent = X;
+				document.querySelector('#Braço de Alavanca').textContent = Z;
+				document.querySelector('#Momento de Inércia').textContent = I;
+				document.querySelector('#Módulo de Resistência (Md{min})').textContent = M_dmin;
+				document.querySelector('#Linha neutra no estádio 1 (x{0})').textContent = X_0;
+			
+				// Resultado final
+				document.querySelector('#A_calc').textContent = A_CALC;
+				document.querySelector('#A_smin').textContent = A_SMIN;
+				document.querySelector('#A_sfinal').textContent = A_SFINAL;
+			}
+		}
+
+		// Função de chamada do clique do botão
+		const PROCESSAR = document.getElementById("calcular");
+		PROCESSAR.addEventListener('click', FLEXAO_PURA);
+	</script>
+  </body>
+</html>

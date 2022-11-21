@@ -1,0 +1,88 @@
+<html lang = "pt-BR">
+  	<head>
+		<title>Verificação do nó pelo Método de Bielas e Tirantes</title>
+		<style>
+			.entradas{
+				width: 350px;
+			}
+			.entradas select{
+				width: 100.00%;
+			}
+			.entradas input{
+				width: 100.00%;
+			}
+		</style>
+		<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  	</head>
+  	<body>
+		<h1><b>CALCULADORA CONCRETO ARMADO</b></h1>
+			<h2><b>Verificação do nó pelo Método de Bielas e Tirantes </b></h2>
+				<div class = 'entradas'>
+				<h3>Entradas:</h3>
+					<table>
+						<tr>
+							<td>Tipo de Nó:</td>
+							<td>
+								<select id = "tipo">
+									<option value = "" data-default disabled selected></option>
+									<option value = "CCC">CCC</option>
+									<option value = "CTT ou TTT">CTT ou TTT</option>
+									<option value = "CCT">CCT</option>
+									<!--Estação de teste-->
+									<!--
+									<option value = "NERVURADA" selected>Lisa</option>
+									-->
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>\(f_{ck} (kPa)\):</td>
+							<td><input type = "number" id = "F_CK" size = "40"> <br></td>
+							<!--Estação de teste-->
+							<!--
+							<td><input type = "number" id = "f_ck" size = "40" value = 25000><br></td>
+							-->
+						</tr>
+					</table>
+				</div>
+					<br>
+					<button id = 'calcular'>Calcular</button>
+				<h3>Processamento:</h3>	
+					<p>Resistência de Cálculo do Concreto \(f_{cd}\):</p>
+					<p id = "F_CD"></p>
+				<h3>Resultados:</h3>
+					<p>\(NO_{CALC}\):</p>
+					<p id = "NO_CALC"></p>
+	<script>
+		function BIELA_TIRANTE() {	
+			/*
+			Esta função determina a verificação do nó para o Modelo de Bielas e Tirantes
+			*/
+			const TIPO = document.getElementById("TIPO").value;
+			const F_CK = document.getElementById("F_CK").value;
+
+
+			// Cálculo da verificação do nó pelo Modelo de Bielas e Tirantes 
+			if ($NO == 'CCC'){
+				$FC_D1 = 0.85*(1-$F_CK/250)*$F_CK/1.40;
+				}elseif ($NO == 'CTT OU TTT'){
+				$FC_D2 = 0.60*(1-$F_CK/250)*$F_CK/1.40;
+				}elseif ($NO == 'CCT'){
+				$FC_D3 = 0.72*(1-$F_CK/250)*$F_CK/1.40;
+				}
+				
+				// Processamento
+				document.querySelector('F_Cd').textContent = F_CD;
+				
+				// Resultado final
+				document.querySelector('#NO_CALC').textContent = NO_CALC;
+			}
+		}
+
+		// Função de chamada do clique do botão
+		const PROCESSAR = document.getElementById("calcular");
+		PROCESSAR.addEventListener('click', FLEXAO_PURA);
+	</script>
+  </body>
+</html>
