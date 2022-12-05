@@ -13,6 +13,6 @@ Orientação:
 [Dr. Mauricio de Pina Ferreira](http://lattes.cnpq.br/4242041552985485)   
 
 Realização  
-[Pamela Inácio Nascimento]()  
+[Pamela Inacio Nascimento]()  
 
 Contato por correio eletrônico: _**wanderlei_junior@ufcat.edu.br**_

@@ -135,61 +135,62 @@
 			// Cálculo do comprimento de ancoragem conforme item 9.3.2.1 da NBR 6118 (2014)
 			if (NORMA == 'NBR 6118') {
   
-				# Parâmetros de cálculo    
-				$F_CK /= 1000;
-				if ($F_CK <= 50){
-					$LAMBDA = 0.80;
-					$ALFA_C = 0.85;
-					$CP_DUCTIL = 0.45;
-					$EPSILON_CU = 0.0035;
-				}elseif ($F_CK > 50 and $F_CK <= 90){					$LAMBDA = 0.8 - ($F_CK - 50)/400;
-					$ALFA_C = 0.85 * (1.0 - ($F_CK - 50)/200);
-					$CP_DUCTIL = 0.35;
-					$EPSILON_CU = 0.0026 + 0.0035 * pow((90 - $F_CK) / 100, 4);
-				}endif;
-				$F_CK *= 1000;
+				//Parâmetros de cálculo    
+				F_CK /= 1000;
+				if (F_CK <= 50){
+					LAMBDA = 0.80;
+					ALFA_C = 0.85;
+					CP_DUCTIL = 0.45;
+					EPSILON_CU = 0.0035;
+				}else if (F_CK > 50 && F_CK <= 90){					
+					LAMBDA = 0.8 - (F_CK - 50)/400;
+					ALFA_C = 0.85 * (1.0 - (F_CK - 50)/200);
+					CP_DUCTIL = 0.35;
+					EPSILON_CU = 0.0026 + 0.0035 * Math.pow((90 - F_CK) / 100, 4);
+				}
+				F_CK *= 1000;
 
-				# Cálculo da Posição da Linha Neutra(X)
-				$F_CD = $F_CK / 1.40;
-				$EPSILON = $M_D / ($B_W * $ALFA_C * $F_CD);
-				$X1 = ($D + sqrt(pow($D, 2) - 2 * $EPSILON)) / $LAMBDA;
-				$X2 = ($D - sqrt(pow($D, 2) - 2 * $EPSILON)) / $LAMBDA;
-				$X = $X2;
+				//Cálculo da Posição da Linha Neutra(X)
+				F_CD = F_CK / 1.40;
+				EPSILON = M_D / (B_W * ALFA_C * F_CD);
+				X1 = (D + Math.sqrt(Math.pow(D, 2) - 2 * EPSILON)) / LAMBDA;
+				X2 = (D - Math.sqrt(Math.pow(D, 2) - 2 * EPSILON)) / LAMBDA;
+				X = X2;
 			
-				# Área de Aço de Cálculo (A_SCALC)
-				$F_YD = $F_YK / 1.15;
-				## Braço de Alavanca (Z)
-				$Z = $D - 0.5 * $LAMBDA * $X;                  
-				$A_SCALC = $M_D / ($Z * $F_YD);
+				//Área de Aço de Cálculo (A_SCALC)
+				F_YD = F_YK / 1.15;
+				//Braço de Alavanca (Z)
+				Z = D - 0.5 * LAMBDA * X;                  
+				A_SCALC = M_D / (Z * F_YD);
 
-				# Cálculo do Momento Mínimo (MD_MIN)
-				$F_CK /= 1000;
-				$F_CTM = 0.3 * pow($F_CK, (2 / 3));
-				$F_CTKSUP = 1.3 * $F_CTM;
-				$F_CTKSUP *= 1000;
-				$F_CTM *= 1000;
-				$F_CK *= 1000;  
-				# Inércia da seção
-				$I_C = ($B_W * pow($H, 3)) / 12;
-				$Y_INF = $H / 2;
-				# Módulo de Resistência
-				$W_0 = $I_C / $Y_INF;                         
-				$MD_MIN = 0.80 * $W_0 * $F_CTKSUP;
+				//Cálculo do Momento Mínimo (MD_MIN)
+				F_CK /= 1000;
+				F_CTM = 0.3 * Math.pow(F_CK, (2 / 3));
+				F_CTKSUP = 1.3 * F_CTM;
+				F_CTKSUP *= 1000;
+				F_CTM *= 1000;
+				F_CK *= 1000;  
+				//Inércia da seção
+				I_C = (B_W * Math.pow(H, 3)) / 12;
+				Y_INF = H / 2;
+				//Módulo de Resistência
+				W_0 = I_C / Y_INF;                         
+				MD_MIN = 0.80 * W_0 * F_CTKSUP;
 			
-				# Cálculo da Posição da Linha Neutra(X) no Estádio 1
-				$F_CD = $F_CK / 1.40;
-				$EPSILON_MD = $MD_MIN / ($B_W * $ALFA_C * $F_CD);
-				$X1_1 = ($D + sqrt(pow($D, 2) - 2 * $EPSILON_MD)) / $LAMBDA;
-				$X2_2 = ($D - sqrt(pow($D, 2) - 2 * $EPSILON_MD)) / $LAMBDA;
-				$X_0 = $X2_2;
+				//Cálculo da Posição da Linha Neutra(X) no Estádio 1
+				F_CD = F_CK / 1.40;
+				EPSILON_MD = MD_MIN / (B_W * ALFA_C * F_CD);
+				X1_1 = (D + Math.sqrt(Math.pow(D, 2) - 2 * EPSILON_MD)) / LAMBDA;
+				X2_2 = (D - Math.sqrt(Math.pow(D, 2) - 2 * EPSILON_MD)) / LAMBDA;
+				X_0 = X2_2;
 			
-				# Área de Aço Mínima (A_SMIN)
-				$F_YD = $F_YK / 1.15;
-				$Z_0 = $D - 0.5 * $LAMBDA * $X_0; 
-				$A_SMIN = $MD_MIN / ($Z_0 * $F_YD);
+				//Área de Aço Mínima (A_SMIN)
+				F_YD = F_YK / 1.15;
+				Z_0 = D - 0.5 * LAMBDA * X_0; 
+				A_SMIN = MD_MIN / (Z_0 * F_YD);
 			
-				#Área de Aço de Uso (A_SFINAL)
-				$A_SFINAL = max($A_SCALC, $A_SMIN);
+				//Área de Aço de Uso (A_SFINAL)
+				A_SFINAL = Math.max(A_SCALC, A_SMIN);
 				
 				// Processamento
 				document.querySelector('#Linha neutra').textContent = X;

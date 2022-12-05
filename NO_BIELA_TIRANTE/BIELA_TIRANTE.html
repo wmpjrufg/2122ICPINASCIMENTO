@@ -22,7 +22,7 @@
 				<h3>Entradas:</h3>
 					<table>
 						<tr>
-							<td>Tipo de Nó:</td>
+							<td>Tipo de Nó :</td>
 							<td>
 								<select id = "tipo">
 									<option value = "" data-default disabled selected></option>
@@ -37,7 +37,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>\(f_{ck} (kPa)\):</td>
+							<td>\(f_{ck} (kPa)\) :</td>
 							<td><input type = "number" id = "F_CK" size = "40"> <br></td>
 							<!--Estação de teste-->
 							<!--
@@ -49,10 +49,10 @@
 					<br>
 					<button id = 'calcular'>Calcular</button>
 				<h3>Processamento:</h3>	
-					<p>Resistência de Cálculo do Concreto \(f_{cd}\):</p>
+					<p>\(f_{cd}\) :</p>
 					<p id = "F_CD"></p>
 				<h3>Resultados:</h3>
-					<p>\(NO_{CALC}\):</p>
+					<p>\(N_{o,calc}\) :</p>
 					<p id = "NO_CALC"></p>
 	<script>
 		function BIELA_TIRANTE() {	
@@ -60,28 +60,29 @@
 			Esta função determina a verificação do nó para o Modelo de Bielas e Tirantes
 			*/
 			const TIPO = document.getElementById("TIPO").value;
-			const F_CK = document.getElementById("F_CK").value;
+			var F_CK = document.getElementById("F_CK").value;
 
 
 			// Cálculo da verificação do nó pelo Modelo de Bielas e Tirantes 
 			if (NO == 'CCC'){
-				FC_D1 = 0.85*(1-F_CK/250)*F_CK/1.40;
-				}elseif (NO == 'CTT OU TTT'){
-				FC_D2 = 0.60*(1-F_CK/250)*F_CK/1.40;
-				}elseif (NO == 'CCT'){
-				FC_D3 = 0.72*(1-F_CK/250)*F_CK/1.40;
-				}
-				
-				// Processamento
-				document.querySelector('F_Cd').textContent = F_CD;
-				
-				// Resultado final
-				document.querySelector('#NO_CALC').textContent = NO_CALC;
+			FC_D1 = 0.85 * (1 - F_CK / 250) * F_CK / 1.40;
+			}else if (NO == 'CTT || TTT'){
+			FC_D2 = 0.60 * (1 - F_CK / 250) * F_CK / 1.40;
+			}else if (NO == 'CCT'){
+			FC_D3 = 0.72 * (1 - F_CK / 250) * F_CK / 1.40;
 			}
+				
+			// Processamento
+			document.querySelector('#F_Cd').textContent = F_CD;
+				
+			// Resultado final
+			document.querySelector('#NO_CALC').textContent = NO_CALC;
+			
 
+		}
 		// Função de chamada do clique do botão
 		const PROCESSAR = document.getElementById("calcular");
-		PROCESSAR.addEventListener('click', FLEXAO_PURA);
+		PROCESSAR.addEventListener('click', BIELA_TIRANTE);
 	</script>
   </body>
 </html>
