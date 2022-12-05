@@ -64,12 +64,12 @@
 
 
 			// Cálculo da verificação do nó pelo Modelo de Bielas e Tirantes 
-			if ($NO == 'CCC'){
-				$FC_D1 = 0.85*(1-$F_CK/250)*$F_CK/1.40;
-				}elseif ($NO == 'CTT OU TTT'){
-				$FC_D2 = 0.60*(1-$F_CK/250)*$F_CK/1.40;
-				}elseif ($NO == 'CCT'){
-				$FC_D3 = 0.72*(1-$F_CK/250)*$F_CK/1.40;
+			if (NO == 'CCC'){
+				FC_D1 = 0.85*(1-F_CK/250)*F_CK/1.40;
+				}elseif (NO == 'CTT OU TTT'){
+				FC_D2 = 0.60*(1-F_CK/250)*F_CK/1.40;
+				}elseif (NO == 'CCT'){
+				FC_D3 = 0.72*(1-F_CK/250)*F_CK/1.40;
 				}
 				
 				// Processamento
@@ -78,7 +78,6 @@
 				// Resultado final
 				document.querySelector('#NO_CALC').textContent = NO_CALC;
 			}
-		}
 
 		// Função de chamada do clique do botão
 		const PROCESSAR = document.getElementById("calcular");
